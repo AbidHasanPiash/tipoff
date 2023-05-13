@@ -1,4 +1,4 @@
-import Image from 'next/image'
+import Feed from "@components/Feed"
 
 export default function Home() {
   return (
@@ -12,6 +12,7 @@ export default function Home() {
         the modern world to discover, and share your valuable 
         tips. Explore new places & Share your guidance here.
       </p>
+      <Feed/>
     </section>
   )
 }

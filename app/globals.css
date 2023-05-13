@@ -6,7 +6,7 @@
   @apply bg-gray-200 dark:bg-gray-950 text-gray-950 dark:text-gray-200;
 }
 .gbg {
-  @apply w-full h-full absolute flex items-center justify-center before:absolute 
+  @apply w-full h-full fixed flex items-center justify-center before:absolute 
   before:h-[300px] before:w-[480px] before:-translate-x-1/2 before:rounded-full 
   before:bg-gradient-radial before:from-gray-100 before:to-transparent 
   before:blur-2xl before:content-[''] 
@@ -26,4 +26,19 @@
 
 .blue_gradient {
   @apply bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent;
+}
+.filled_btn{
+  @apply py-1 px-2 rounded-full font-semibold ring-2 
+  ring-gray-950 dark:ring-gray-200
+  bg-gray-950 dark:bg-gray-200 
+  text-gray-200 dark:text-gray-950
+  dark:hover:bg-gray-950 hover:bg-gray-200 
+  dark:hover:text-gray-200 hover:text-gray-950;
+}
+.outlined_btn{
+  @apply py-1 px-2 rounded-full font-semibold ring-2 
+  ring-gray-950 dark:ring-gray-200
+  text-gray-950 dark:text-gray-200
+  dark:hover:bg-gray-200 hover:bg-gray-950 
+  dark:hover:text-gray-950 hover:text-gray-200;
 }

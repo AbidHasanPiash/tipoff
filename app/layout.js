@@ -1,4 +1,6 @@
 import "./globals.css";
+import Nav from "@components/Nav";
+import Provider from "@components/Provider";
 
 export const metadata = {
   title: "TipOff",
@@ -9,7 +11,8 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className="responsive_color min-h-screen">
-        <div className="gbg"/>
+        <div className="gbg -z-10"/>
+        <Nav/>
         <main className="max-w-7xl mx-auto">
           {children}
         </main>
