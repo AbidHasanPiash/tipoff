@@ -81,7 +81,7 @@ export default function Nav() {
       {session?.user && 
       <div 
         className={`${isOpen ? 'h-60 text-2xl font-semibold border-b':'h-0 pt-5 text-[0px]'} 
-        md:hidden  flex items-center justify-center transition-all duration-300`}
+        md:hidden z-30 flex items-center justify-center transition-all duration-300`}
       >
         <div className='flex flex-col items-start space-y-10'>
           <span className='flex items-center space-x-3'>

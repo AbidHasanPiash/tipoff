@@ -14,7 +14,7 @@ export default function RootLayout({ children }) {
         <Provider>
           <div className="gbg -z-10"/>
           <Nav/>
-          <main className="max-w-7xl mx-auto">
+          <main className="max-w-7xl mx-auto pt-20">
             {children}
           </main>
         </Provider>
