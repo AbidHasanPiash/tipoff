@@ -3,19 +3,19 @@ import Link from 'next/link';
 import Image from 'next/image';
 import {TbMenu} from 'react-icons/tb';
 import {VscClose} from 'react-icons/vsc';
+import {RiShareCircleFill, RiLogoutCircleLine} from 'react-icons/ri';
 import {useState, useEffect} from 'react';
 import {signIn, signOut, useSession, getProviders} from 'next-auth/react';
 
 export default function Nav() {
   const [isOpen, setOpen] = useState(false);
-  const isUserLogedIn = true;
+  const {data: session} = useSession();
   const [providers, setProviders] = useState(null);
-  useEffect(()=>{
-    const setUpProviders = async () => {
-      const response = await getProviders();
-      setProviders(response);
-    }
-    setUpProviders();
+  useEffect(() => {
+    (async () => {
+      const res = await getProviders();
+      setProviders(res);
+    })();
   }, []);
   return (
     <nav className='fixed top-0 left-0 right-0 p-3 bg-white/10 dark:bg-black/10 backdrop-blur-md'>
@@ -38,15 +38,16 @@ export default function Nav() {
           </div>
         </Link>
         <div>
-          {isUserLogedIn ?
+          {session?.user ?
             <>
               {/* Desktop view */}
               <div className='hidden md:flex items-center space-x-6'>
                 <Link href={'/create-post'} className='filled_btn'>Create Post</Link>
-                <button onClick={signOut} className='outlined_btn'>Sign Out</button>
-                <Link href={'/profile'} className='rounded-full ring ring-rose-500'>
+                <button onClick={()=>signOut()} className='outlined_btn'>Sign Out</button>
+                <Link href={'/profile'} className='rounded-full ring ring-gray-200'>
                   <Image 
-                    src={'/images/tipoff.png'}
+                    className='rounded-full'
+                    src={session?.user.image}
                     alt='logo'
                     width={40}
                     height={40}
@@ -77,15 +78,24 @@ export default function Nav() {
         </div>
       </div>
       {/* Mobile View body only*/}
-      {isUserLogedIn && 
+      {session?.user && 
       <div 
-        className={`${isOpen ? 'h-60 text-2xl font-semibold':'h-0 pt-5 text-[0px]'} 
-        md:hidden flex items-center justify-end transition-all duration-300`}
+        className={`${isOpen ? 'h-60 text-2xl font-semibold border-b':'h-0 pt-5 text-[0px]'} 
+        md:hidden  flex items-center justify-center transition-all duration-300`}
       >
-        <div className='flex flex-col text-right px-6 space-y-7'>
-          <Link href={'/create-post'} onClick={()=>setOpen(false)} className=''>Create Post</Link>
-          <button onClick={()=>{signOut; setOpen(false)}} className=''>Sign Out</button>
-          <Link href={'/profile'} onClick={()=>setOpen(false)} className=''>My Profile</Link>
+        <div className='flex flex-col items-start space-y-10'>
+          <span className='flex items-center space-x-3'>
+            <span className={`${isOpen?'block':'hidden'}`}><RiShareCircleFill size={30}/></span>
+            <Link href={'/create-post'} onClick={()=>setOpen(false)}>Create Post</Link>
+          </span>
+          <span className='flex items-center space-x-3'>
+            <span className={`${isOpen?'block':'hidden'}`}><RiLogoutCircleLine size={30}/></span>
+            <button onClick={()=>{signOut(); setOpen(false)}}>Sign Out</button>
+          </span>
+          <span className='flex items-center space-x-3'>
+            <Image className={`${isOpen?'block':'hidden'} rounded-full ml-1 ring-2 ring-gray-200`}src={session?.user.image}alt='logo'width={25}height={25}/>
+            <Link href={'/profile'} onClick={()=>setOpen(false)}>My Profile</Link>
+          </span>
         </div>
       </div>}
     </nav>

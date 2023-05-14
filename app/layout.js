@@ -11,11 +11,13 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className="responsive_color min-h-screen">
-        <div className="gbg -z-10"/>
-        <Nav/>
-        <main className="max-w-7xl mx-auto">
-          {children}
-        </main>
+        <Provider>
+          <div className="gbg -z-10"/>
+          <Nav/>
+          <main className="max-w-7xl mx-auto">
+            {children}
+          </main>
+        </Provider>
       </body>
     </html>
   );
