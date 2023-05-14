@@ -46,7 +46,7 @@ export default function Feed() {
             onFocus={()=>setIsFocused(true)}
             onBlur={()=>setIsFocused(false)}
             required
-            className="w-full py-1 px-5 outline-none bg-transparent"
+            className="w-full m-1 px-5 outline-none bg-transparent rounded-full"
           />
           <span className="absolute right-5">
             <BsSearchHeart size={25} className={`${isFocused && 'text-blue-500 dark:text-amber-400'}`}/>

@@ -9,6 +9,9 @@ import {BsHeart, BsHeartFill} from "react-icons/bs"
 
 export default function PromptCard({post, handleTagClick, handleEdit, handleDelete}) {
   const [heartClicked, setHeartClicked] = useState(false);
+  const {data: session} = useSession();
+  const pathName = usePathname();
+  const router = useRouter();
   return (
     <div className="prompt_card">
       <div className="flex justify-between items-start gap-5">
@@ -35,6 +38,17 @@ export default function PromptCard({post, handleTagClick, handleEdit, handleDele
       <p className="text-blue-400 cursor-pointer" onClick={()=>handleTagClick && handleTagClick(post.tag)}>
         {post.tag}
       </p>
+      {session?.user.id === post.creator._id &&
+      pathName === '/profile' && (
+        <div className="pt-2 mt-2 flex items-center justify-end gap-5 border-t border-t-gray-500 border-opacity-50">
+          <p className="text-sm cursor-pointer text-green-400" onClick={handleEdit} >
+            Edit
+          </p>
+          <p className="text-sm cursor-pointer text-red-400" onClick={handleDelete} >
+            Delete
+          </p>
+        </div>
+      )}
     </div>
   )
 }
