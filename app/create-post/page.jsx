@@ -1,5 +1,5 @@
 'use client'
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import Form from "@components/Form";
@@ -33,6 +33,9 @@ export default function CreatePost() {
             setSubmitting(false);
           }
     }
+    useEffect(()=>{
+      if(!session?.user.id) router.push(`/`);
+    },[session?.user.id]);
   return (
     <Form
         type='Create'

@@ -22,6 +22,7 @@ export default function UpdatePost() {
             })
         }
         if(promptId) getPromptDetails();
+        else router.push(`/`);
     }, [promptId]);
     const updatePrompt = async (e) => {
         e.preventDefault();

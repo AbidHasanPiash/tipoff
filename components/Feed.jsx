@@ -6,7 +6,7 @@ import PromptCard from "./PromptCard";
 
 const PromptCardList = ({data, handleTagClick}) => {
   return(
-    <div className="mt-16 prompt_layout">
+    <div className="mt-16 grid md:grid-cols-2 lg:grid-cols-3 gap-4">
       {data.map(post=>(
         <PromptCard 
           key={post._id}
@@ -34,7 +34,7 @@ export default function Feed() {
   },[]);
   return (
     <section className="feed">
-      <form className="w-full flex items-center justify-center">
+      <form className="w-full max-w-xl flex items-center justify-center">
         <div className={`relative w-full flex items-center bg-black/10 dark:bg-white/10 rounded-full py-2 mx-5
           ${isFocused?'dark:text-amber-400 ring-1 ring-blue-500 dark:ring-amber-400':'text-white'}`}
         >
@@ -54,10 +54,12 @@ export default function Feed() {
         </div>
       </form>
 
-      <PromptCardList
-        data={posts}
-        handleTagClick={()=>{}}
-      />
+      <div className="px-5">
+        <PromptCardList
+          data={posts}
+          handleTagClick={()=>{}}
+        />
+      </div>
     </section>
   )
 }
