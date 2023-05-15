@@ -3,7 +3,7 @@ import Nav from "@components/Nav";
 import Provider from "@components/Provider";
 
 export const metadata = {
-  title: "TipOff",
+  title: "TIPOFF",
   description: "Explore new place & Share your guidance",
 };
 
