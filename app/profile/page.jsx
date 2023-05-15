@@ -16,6 +16,7 @@ export default function MyProfile() {
       setPosts(data);
     }
     if(session?.user.id) fetchPost();
+    else router.push(`/`);
   },[session?.user.id]);
   const handleEdid = (post) => {
     router.push(`/uptade-post?id=${post._id}`)
@@ -38,11 +39,11 @@ export default function MyProfile() {
   }
   return (
     <Profile
-        name="My"
-        desc="Welcome to your personalized profile"
-        data={posts}
-        handleEdid={handleEdid}
-        handleDelete={handleDelete}
+      name="My"
+      desc="Welcome to your personalized profile"
+      data={posts}
+      handleEdid={handleEdid}
+      handleDelete={handleDelete}
     />
   )
 }
