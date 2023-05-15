@@ -1,6 +1,7 @@
 import "./globals.css";
 import Nav from "@components/Nav";
 import Provider from "@components/Provider";
+import Footer from "@components/Footer";
 
 export const metadata = {
   title: "TIPOFF",
@@ -17,6 +18,7 @@ export default function RootLayout({ children }) {
           <main className="max-w-7xl mx-auto pt-20">
             {children}
           </main>
+          <Footer/>
         </Provider>
       </body>
     </html>
