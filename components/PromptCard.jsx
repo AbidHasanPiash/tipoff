@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Image from "next/image";
 import { useSession } from "next-auth/react";
 import { usePathname, useRouter } from "next/navigation";
@@ -26,7 +26,7 @@ export default function PromptCard({post, handleTagClick, handleEdit, handleDele
             alt="user_image"
             width={40}
             height={40}
-            className="rounded-full object-contain"
+            className="rounded-full"
           />
           <div className="flex flex-col">
             <h3 className="font-semibold tracking-widest">{post.creator.username}</h3>

@@ -18,7 +18,7 @@ export default function Nav() {
     })();
   }, []);
   return (
-    <nav className='fixed top-0 left-0 right-0 p-3 bg-white/10 dark:bg-black/10 backdrop-blur-md'>
+    <nav className='fixed z-40 top-0 left-0 right-0 p-3 bg-white/10 dark:bg-black/10 backdrop-blur-md'>
       <div className='max-w-7xl mx-auto flex items-center justify-between'>
         <Link href={'/'}>
           <div className='group flex items-center justify-center space-x-2 cursor-pointer'>
