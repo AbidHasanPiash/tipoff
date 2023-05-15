@@ -43,15 +43,15 @@
   dark:hover:text-gray-950 hover:text-gray-200;
 }
 .glassmorphism {
-  @apply rounded-xl border border-gray-200 bg-white/20 shadow-[inset_10px_-50px_94px_0_rgb(199,199,199,0.2)] backdrop-blur p-5;
+  @apply rounded-xl border border-gray-200 bg-white/10 shadow-[inset_10px_-50px_94px_0_rgb(199,199,199,0.2)] backdrop-blur p-5;
 }
 /* Form Component */
 .form_textarea {
-  @apply w-full flex rounded-lg h-[200px] mt-2 p-3 text-sm text-gray-500 outline-0;
+  @apply w-full flex rounded-lg h-[200px] mt-2 p-3 bg-transparent text-sm ring-1;
 }
 
 .form_input {
-  @apply w-full flex rounded-lg mt-2 p-3 text-sm text-gray-500 outline-0;
+  @apply w-full flex rounded-lg mt-2 p-3 text-sm bg-transparent ring-1;
 }
 /* Feed Component */
 .feed {
@@ -59,7 +59,7 @@
 }
 /* PromptCard Component */
 .prompt_card {
-  @apply flex-1 break-inside-avoid rounded-lg border border-gray-300 bg-white/20 bg-clip-padding p-6 pb-4 backdrop-blur-lg backdrop-filter md:w-[360px] w-full h-fit;
+  @apply flex flex-col z-0 rounded-lg border border-gray-300 bg-white/20 p-6 pb-4 backdrop-blur-lg md:w-[360px] w-full h-fit;
 }
 .prompt_layout {
   @apply space-y-6 py-8 sm:columns-2 sm:gap-6 md:columns-3;

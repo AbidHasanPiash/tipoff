@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Image from "next/image";
 import { useSession } from "next-auth/react";
 import { usePathname, useRouter } from "next/navigation";
@@ -12,16 +12,21 @@ export default function PromptCard({post, handleTagClick, handleEdit, handleDele
   const {data: session} = useSession();
   const pathName = usePathname();
   const router = useRouter();
+
+  const handleProfileClick = () => {
+    if (post.creator._id === session?.user.id) return router.push("/profile");
+    router.push(`/profile/${post.creator._id}?name=${post.creator.username}`);
+  };
   return (
     <div className="prompt_card">
       <div className="flex justify-between items-start gap-5">
-        <div className="flex-1 flex justify-start items-center gap-3 cursor-pointer">
+        <div onClick={handleProfileClick} className="flex-1 flex justify-start items-center gap-3 cursor-pointer">
           <Image
             src={post.creator.image}
             alt="user_image"
             width={40}
             height={40}
-            className="rounded-full object-contain"
+            className="rounded-full"
           />
           <div className="flex flex-col">
             <h3 className="font-semibold tracking-widest">{post.creator.username}</h3>
