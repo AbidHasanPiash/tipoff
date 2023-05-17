@@ -13,6 +13,14 @@ const PromptSchema = new Schema({
         type: String,
         required: [true, 'Tag is requaired'],
     },
+    likes: {
+      type: Number,
+      default: 0,
+    },
+    likedBy: [{
+      type: Schema.Types.ObjectId,
+      ref: 'User',
+    }],
 
 });
 
