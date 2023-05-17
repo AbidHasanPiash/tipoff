@@ -7,7 +7,9 @@ export default function Profile({name, desc, data, handleEdid, handleDelete}) {
         <span className='blue_gradient'>{name} Profile</span>
       </h1>
       <p className='py-5 text-xl'>{desc}</p>
-      <div className="mt-10 prompt_layout">
+      <div className="feed">
+      <h1 className="text-start w-full text-4xl font-bold green_gradient">{name === 'My' ? name:`${name}'s`} posts </h1>
+      <div className="mt-16 grid md:grid-cols-2 lg:grid-cols-3 gap-4">
         {data.map(post=>(
           <PromptCard 
             key={post._id}
@@ -16,6 +18,7 @@ export default function Profile({name, desc, data, handleEdid, handleDelete}) {
             handleDelete={()=> handleDelete && handleDelete(post)}
           />
         ))}
+      </div>
       </div>
     </section>
   )
