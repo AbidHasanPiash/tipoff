@@ -139,8 +139,7 @@ export default function PromptCard({ post, handleTagClick, handleEdit, handleDel
           <button disabled={submitting} onClick={handleHeartClick} className="cursor-pointer">
             {isLiked ? <BsHeartFill className="text-red-500" /> : <BsHeart />}
           </button>
-          {totalLike > 1 && <p className="pb-1 text-sm">{isLiked? `You, ${totalLike} others`:`${totalLike} others`}</p>}
-          {totalLike === 1 && <p className="pb-1 text-sm">{isLiked && session?.user ? session.user.name: '1 others'}</p>}
+          {totalLike >= 1 && <p className="pb-1 text-sm">{totalLike}</p>}
         </div>
         {showSigninPopup &&
           <div className="absolute -top-2 right-2 flex items-center justify-center px-2 py-1 space-x-2 bg-black rounded ring-1 ring-orange-500">
