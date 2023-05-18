@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import {SiLinkedin, SiGithub, SiGmail} from "react-icons/si";
-import {TbWorldWww} from "react-icons/tb";
 
 export default function Footer() {
   return (
@@ -23,7 +22,7 @@ export default function Footer() {
         <div className="w-full max-w-5xl m-auto space-y-8 px-6 text-gray-600 dark:text-gray-400 md:px-12 lg:px-20">
           <div className="grid grid-cols-8 gap-6 md:gap-0">
             <div className="col-span-8 border-r border-gray-100 dark:border-gray-800 md:col-span-2 lg:col-span-3">
-              <div className="flex items-center justify-between gap-3 border-b border-white dark:border-gray-800 py-6 md:block md:space-y-6 md:border-none md:py-0">
+              <div className="flex items-center justify-between gap-3 text-xl border-b border-white dark:border-gray-800 py-6 md:block md:space-y-6 md:border-none md:py-0">
                 <div>
                     <Image
                     src={'/images/tipoff.png'}
@@ -33,13 +32,13 @@ export default function Footer() {
                     className="dark:brightness-200 dark:grayscale hover:grayscale-0 hover:brightness-100"
                     />
                     <span className="hidden md:block">
-                        Developer - 
+                        Developer -
                         <Link 
                             href={'https://abidhasan.vercel.app/'} 
                             target="_blank"
-                            className="hover:text-[#ff4252]"
+                            className="hover:text-[#ff7782]"
                         >
-                            Abid Hasan
+                            <span className="font-abidFont tracking-widest font-extrabold"> Abid Hasan</span>
                         </Link>
                     </span>
                 </div>
@@ -49,20 +48,20 @@ export default function Footer() {
                         <Link 
                             href={'https://abidhasan.vercel.app/'} 
                             target="_blank"
-                            className="hover:text-[#ff4252]"
+                            className="hover:text-[#ff7782]"
                         >
-                            Abid Hasan
+                            <span className="font-abidFont tracking-widest font-extrabold"> Abid Hasan</span>
                         </Link>
                     </span>
                     <div className="flex gap-6 md:pb-5">
                         <Link href={'https://www.linkedin.com/in/abidhasanpiash/'} target="_blank">
-                            <SiLinkedin className="hover:text-[#ff4252]"/>
+                            <SiLinkedin className="hover:text-[#ff7782]"/>
                         </Link>
                         <Link href={'https://github.com/AbidHasanPiash'} target="_blank">
-                            <SiGithub className="hover:text-[#ff4252]"/>
+                            <SiGithub className="hover:text-[#ff7782]"/>
                         </Link>
                         <Link href={'mailto:mp.abidhasan@gmail.com'} target="_blank">
-                            <SiGmail className="hover:text-[#ff4252]"/>
+                            <SiGmail className="hover:text-[#ff7782]"/>
                         </Link>
                     </div>
                 </div>
